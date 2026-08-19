@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um convite especial... 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Passo 1 -->
+        <div class="card active" id="step1">
+            <h1>Oi, Kelly... 💖</h1>
+            <p>Eu sei que estamos um pouco longe no momento...</p>
+            <button class="next-btn" onclick="nextStep(2)">Continuar</button>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="card" id="step2">
+            <p>Mas eu não queria que a distância nos impedisse de ter um momento especial juntos, e você sabe que eu
+                gosto de
+                tornar seus dias melhores...</p>
+            <button class="next-btn" onclick="nextStep(3)">Continuar</button>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="card" id="step3">
+            <img src="image/ingredientes.jpg" alt="Ingredientes" class="step-image">
+            <p>Então, eu comprei os ingredientes para fazer um <strong>Carbonara</strong> e um bom
+                <strong>vinho</strong>. 🍝🍷
+            </p>
+            <button class="next-btn" onclick="nextStep(4)">Continuar</button>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="card" id="step4">
+            <h1>E queria saber...</h1>
+            <p>Você anima fazer uma ligação de vídeo comigo?<br>Eu cozinho daqui, a gente conversa e depois assistimos a
+                um filme
+                juntos. 🥰</p>
+            <div class="buttons">
+                <button class="yes-btn" onclick="sayYes()">Sim!</button>
+                <button class="no-btn" id="no-btn">Não...</button>
+            </div>
+        </div>
+
+        <!-- Passo 5 (Final) -->
+        <div class="card" id="step5">
+            <h1>Aeeeee! 🎉</h1>
+            <p>Estou ansioso por esse momento!<br>Vamos olhar a lista e decidir o filme juntos. ❤️</p>
+        </div>
+    </div>
+
+    <!-- Popup de Erro -->
+    <div class="overlay" id="error-popup">
+        <div class="popup-content">
+            <h2>⚠️ Erro no Sistema</h2>
+            <p>O botão "Não" encontra-se inativo por motivos de: não aceito não como resposta.<br>Por favor, utilize o
+                botão "Sim".</p>
+            <button class="next-btn" onclick="closePopup()">Entendi</button>
+        </div>
+    </div>
+
+    <!-- Script para os confetes -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

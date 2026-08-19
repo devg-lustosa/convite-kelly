@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    height: 500px;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+h1 {
+    color: #ff4b6e;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.step-image {
+    max-width: 100%;
+    max-height: 250px; /* Aumentado no modo PC */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+p {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+strong {
+    color: #ff4b6e;
+}
+
+button {
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.next-btn, .yes-btn {
+    background: #ff4b6e;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 75, 110, 0.4);
+}
+
+.next-btn:hover, .yes-btn:hover {
+    transform: scale(1.05);
+    background: #ff2a55;
+    box-shadow: 0 6px 20px rgba(255, 75, 110, 0.6);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 60px; /* Para manter o espaço quando o botão "Não" sair */
+}
+
+.no-btn {
+    background: #e0e0e0;
+    color: #666;
+    z-index: 100;
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 600px) {
+    .container {
+        height: 450px;
+        width: 95%;
+    }
+    
+    .card {
+        padding: 30px 20px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    p {
+        font-size: 1.05rem;
+        margin-bottom: 25px;
+    }
+    
+    button {
+        padding: 10px 24px;
+        font-size: 1rem;
+    }
+    
+    .buttons {
+        gap: 15px;
+    }
+    
+    .step-image {
+        max-height: 180px; /* Mantém um pouco menor no celular para não quebrar a tela */
+    }
+}
+
+/* Popup de Erro */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 90%;
+    width: 350px;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-content h2 {
+    color: #ff4b6e;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.popup-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
